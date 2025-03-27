@@ -17,10 +17,6 @@ public class SessionCleanupTask {
 
     @Scheduled(fixedRate = 600000)
     public void cleanupExpiredSessions() {
-        try {
-            logoutUseCase.execute();
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
+
     }
 }
