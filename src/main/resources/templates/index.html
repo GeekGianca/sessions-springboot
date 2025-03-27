@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" th:href="@{/img/apple-icon.png}">
+    <link rel="icon" type="image/png" th:href="@{/img/favicon.png}">
+    <title>
+        Administrador de sessiones
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
+    <!-- Nucleo Icons -->
+    <link th:href="@{/css/nucleo-icons.css}" rel="stylesheet"/>
+    <link th:href="@{/css/nucleo-svg.css}" rel="stylesheet"/>
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link th:href="@{/css/nucleo-svg.css}" rel="stylesheet"/>
+    <!-- CSS Files -->
+    <link id="pagestyle" th:href="@{/css/argon-dashboard.css?v=2.0.4}" rel="stylesheet"/>
+</head>
+
+<body class="">
+<main class="main-content  mt-0">
+    <section>
+        <div class="page-header min-vh-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
+                        <div class="card card-plain">
+                            <div class="card-header pb-0 text-start">
+                                <h4 class="font-weight-bolder">Acceso</h4>
+                                <p class="mb-0">Ingresa tu email y contraseña para iniciar sesión</p>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" th:object="${UserSignInDto}" th:action="@{/}">
+                                    <div class="mb-3">
+                                        <input type="email"
+                                               th:classappend="${#fields.hasErrors('username')}? 'is-invalid'"
+                                               th:field="${UserSignInDto.username}" class="form-control form-control-lg"
+                                               placeholder="Email" aria-label="Email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password"
+                                               th:classappend="${#fields.hasErrors('password')}? 'is-invalid'"
+                                               th:field="${UserSignInDto.password}" class="form-control form-control-lg"
+                                               placeholder="Contraseña" aria-label="Password">
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">Recordar</label>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">
+                                            Iniciar sesión
+                                        </button>
+                                    </div>
+                                </form>
+                                <div th:if="${param.notfound}" class="alert alert-warning"
+                                     role="alert">
+                                    El usuario ingresado no existe.
+                                </div>
+                                <div th:if="${param.badpassword}" class="alert alert-warning"
+                                     role="alert">
+                                    La contraseña ingresada no es correcta.
+                                </div>
+                            </div>
+                            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                <p class="mb-4 text-sm mx-auto">
+                                    ¿No tienes una cuenta?
+                                    <a th:href="@{/signup}" class="text-primary text-gradient font-weight-bold">Inscribirse</a>
+                                </p>
+                                <div id="alert-done" th:if="${param.success}" class="alert alert-success text-white"
+                                     role="alert">
+                                    Registro exitoso, espera confirmación para iniciar sesión.
+                                </div>
+                                <div th:if="${param.disabled}" class="alert alert-warning" role="alert">
+                                    El usuario ingresado no ha sido activado.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+                        <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
+                             style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
+          background-size: cover;">
+                            <span class="mask bg-gradient-primary opacity-6"></span>
+                            <h4 class="mt-5 text-white font-weight-bolder position-relative">Bienvenido</h4>
+                            <p class="text-white position-relative">Nos alegra verte nuevamente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<!--   Core JS Files   -->
+<script th:src="@{/js/core/popper.min.js}"></script>
+<script th:src="@{/js/core/bootstrap.min.js}"></script>
+<script th:src="@{/js/plugins/perfect-scrollbar.min.js}"></script>
+<script th:src="@{/js/plugins/smooth-scrollbar.min.js}"></script>
+<script>
+    let win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        let options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+    const myAlert = document.getElementById('alert-done');
+    setInterval(function () {
+        myAlert.remove();
+    }, 5500);
+</script>
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+<script th:src="@{/js/argon-dashboard.min.js?v=2.0.4}"></script>
+</body>
+
+</html>
