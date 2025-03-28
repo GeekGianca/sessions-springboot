@@ -6,7 +6,9 @@ import com.example.session.core.model.UserEntity;
 import com.example.session.core.usecase.ISaveUserUseCase;
 import org.springframework.stereotype.Service;
 
-
+/**
+ * Use case used to create a user.
+ */
 @Service
 public class SaveUserUseCase implements ISaveUserUseCase {
     private final IUserRepository userRepository;

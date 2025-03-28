@@ -8,6 +8,12 @@ import com.example.session.core.usecase.ISaveUserUseCase;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/**
+ * The @UserService implements the IUserService interface,
+ * which contains the create and search methods,
+ * thus working and overriding only the methods within the
+ * interface, segregating and dividing responsibilities.
+ */
 @Service
 public class UserService implements IUserService {
 

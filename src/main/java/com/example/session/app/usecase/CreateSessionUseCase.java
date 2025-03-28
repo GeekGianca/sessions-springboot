@@ -21,6 +21,11 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Supplier;
 
+/**
+ * This use case is responsible for creating a session in the database,
+ * you have the option to run the creation with the current
+ * context or with a username within the context.
+ */
 @Service
 public class CreateSessionUseCase implements ICreateSessionUseCase {
 

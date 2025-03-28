@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * This use case represents the list of active sessions,
+ * showing all sessions without exclusion.
+ */
 @Service
 public class FindAllSessionsUseCase implements IFindAllSessionUseCase {
     private final ISessionRepository sessionRepository;

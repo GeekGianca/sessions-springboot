@@ -18,6 +18,12 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.function.Supplier;
 
+/**
+ * This use case executes the logout function.
+ * This can be done in two ways, but it has a single responsibility:
+ * it can automatically log out either because the time has expired,
+ * or it logs out because the user executed the logout function.
+ */
 @Service
 public class LogoutUseCase implements ILogoutUseCase {
 

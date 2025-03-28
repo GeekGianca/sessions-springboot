@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * The session service implements an interface
+ * to segregate responsibilities, thus injecting the interface, not the class.
+ * It fulfills the obligation to work only on the session,
+ * in this case by creating a session or closing it.
+ */
 @Service
 public class SessionService implements ISessionService {
 

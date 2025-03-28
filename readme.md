@@ -1,5 +1,5 @@
 # Proyecto: Session
-
+ https://sessions-checker-d507000f8e10.herokuapp.com
 ## Descripción
 Este proyecto sigue la arquitectura Clean Architecture en Java con Spring Boot, asegurando una separación clara de responsabilidades y facilitando la mantenibilidad y escalabilidad del software.
 
@@ -78,6 +78,12 @@ Contiene los controladores que manejan las peticiones HTTP:
    cd session
    ```
 2. Configurar el archivo `application.properties` según la base de datos y necesidades del proyecto.
+3. Si desea correrlo localmente debe configurar los parametros en el `application.properties` de la siguiente manera.
+   ```bash
+    spring.datasource.url=jdbc:mysql://localhost/bdName?createDatabaseIfNotExist=true
+    spring.datasource.username=username
+    spring.datasource.password=securePassword
+   ```
 3. Construir y ejecutar el proyecto con Maven:
    ```bash
    mvn clean install
