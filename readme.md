@@ -84,7 +84,12 @@ Contiene los controladores que manejan las peticiones HTTP:
     spring.datasource.username=username
     spring.datasource.password=securePassword
    ```
-3. Construir y ejecutar el proyecto con Maven:
+3. Ejecucion pruebas unitarias:
+   ```bash
+   mvn test
+   ```
+   
+4. Construir y ejecutar el proyecto con Maven:
    ```bash
    mvn clean install
    mvn spring-boot:run
